@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام كاشير المطاعم</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- القائمة الجانبية -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>نظام المقبلات</span>
+                <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+            </div>
+            <div class="categories-list">
+                <div class="category-item active" data-category="vegetables">
+                    <i class="fas fa-carrot"></i>
+                    <span>الخضار والفواكه</span>
+                </div>
+                <div class="category-item" data-category="spices">
+                    <i class="fas fa-mortar-pestle"></i>
+                    <span>البهارات</span>
+                </div>
+                <div class="category-item" data-category="food">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>المواد الغذائية</span>
+                </div>
+                <div class="category-item" data-category="cleaning">
+                    <i class="fas fa-soap"></i>
+                    <span>المنظفات</span>
+                </div>
+                <div class="category-item" data-category="production">
+                    <i class="fas fa-egg"></i>
+                    <span>الإنتاج</span>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="developer">
+                    تم التطوير بواسطة <span>Aq7ms</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="main-content">
+            <div class="items-container">
+                <!-- محتوى العناصر سيتم إضافته عبر الجافاسكريبت -->
+            </div>
+        </div>
+
+        <!-- القائمة المختارة -->
+        <div class="order-section">
+            <div class="order-header">
+                <h3>الطلبات المختارة</h3>
+                <div class="order-actions">
+                    <button id="print-btn"><i class="fas fa-print"></i> طباعة</button>
+                    <button id="copy-btn"><i class="fas fa-copy"></i> نسخ</button>
+                    <button id="clear-btn"><i class="fas fa-trash"></i> مسح الكل</button>
+                </div>
+            </div>
+            <div class="order-items" id="order-items">
+                <!-- العناصر المختارة تظهر هنا -->
+            </div>
+            <div class="order-summary">
+                <div class="summary-row">
+                    <span>عدد الأصناف:</span>
+                    <span id="items-count">0</span>
+                </div>
+                <button id="save-btn"><i class="fas fa-save"></i> حفظ الطلب</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة اختيار الكمية -->
+    <div class="modal" id="quantity-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>تحديد الكمية</h4>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="selected-item-name">خيار</p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                    <input type="number" id="quantity-input" value="1" min="1">
+                    <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="unit-selection">
+                    <label>وحدة القياس:</label>
+
+<select id="unit-select">
+                        <option value="حبة">حبة</option>
+                        <option value="كغم">كغم</option>
+                        <option value="غرام">غرام</option>
+                        <option value="علاكه">علاكه</option>
+                        <option value="علبة">علبة</option>
+                        <option value="صندوق">صندوق</option>
+                        <option value="طبق">طبق</option>
+                        <option value="كارتون">كارتون</option>
+                        <option value="باكه">باكه</option>
+                        <option value="جيس">جيس</option>
+                        <option value="ماعون">ماعون</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-btn">تأكيد</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- إشعار -->
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
