@@ -390,7 +390,7 @@ function copyOrderToClipboard() {
         return;
     }
     
-    let text = "الطلبات المختارة:\n";
+    let text = "القائمة :\n";
     text += "----------------\n";
     
     selectedItems.forEach((item, index) => {
@@ -513,3 +513,18 @@ function initializeApp() {
 
 // تشغيل التطبيق عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', initializeApp);
+document.getElementById("whatsapp-btn").addEventListener("click", () => {
+    if (selectedItems.length === 0) {
+        showNotification("لا توجد طلبات لإرسالها");
+        return;
+    }
+
+    let message = "🧾 *قائمة الطلبات:*\n";
+    selectedItems.forEach((item, index) => {
+        message += `${index + 1}. ${item.name} - ${item.quantity} ${item.unit}\n`;
+    });
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
+});
